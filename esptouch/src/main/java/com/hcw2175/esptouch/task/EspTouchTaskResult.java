@@ -22,6 +22,10 @@ public class EspTouchTaskResult{
     private String bssid;                  // 设备绑定mac地址
     private InetAddress inetAddress;       // 设备绑定的IP地址
 
+    private String esptouchResult;         // 原始结果
+    private int esptouchOffset;            // 结果开始截取位置
+    private int esptouchLen;               // 结果所需要长度
+
     // ==================================================================
     // constructor ======================================================
     public EspTouchTaskResult(){}
@@ -67,5 +71,29 @@ public class EspTouchTaskResult{
     }
     public void setInetAddress(InetAddress inetAddress) {
         this.inetAddress = inetAddress;
+    }
+
+    public String getEsptouchResult() {
+        return esptouchResult;
+    }
+
+    public void setEsptouchResult(String esptouchResult) {
+        this.esptouchResult = esptouchResult;
+    }
+
+    public int getEsptouchOffset() {
+        return esptouchOffset;
+    }
+
+    public void setEsptouchOffset(int esptouchOffset) {
+        this.esptouchOffset = esptouchOffset;
+    }
+
+    public int getEsptouchLen() {
+        return esptouchLen;
+    }
+
+    public void setEsptouchLen(int esptouchLen) {
+        this.esptouchLen = esptouchLen;
     }
 }

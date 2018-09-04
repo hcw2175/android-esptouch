@@ -16,6 +16,7 @@ import com.hcw2175.esptouch.util.ByteUtil;
 import com.hcw2175.esptouch.util.EspNetUtil;
 
 import java.net.InetAddress;
+import java.util.Arrays;
 
 import rx.Observable;
 import rx.Subscriber;
@@ -219,6 +220,9 @@ public class EspTouchTask {
                             esptouchResult.setMessage("WIFI设置成功");
                             esptouchResult.setInetAddress(inetAddress);
                             esptouchResult.setBssid(bssid);
+                            esptouchResult.setEsptouchResult(Arrays.toString(receiveBytes));
+                            esptouchResult.setEsptouchOffset(requestParameters.getEsptouchResultOneLen());
+                            esptouchResult.setEsptouchLen(requestParameters.getEsptouchResultMacLen());
                         }
                     }else{
                         Log.w(TAG, "垃圾数据，忽略掉：" + ByteUtil.getHexs(receiveBytes));
