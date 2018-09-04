@@ -209,6 +209,7 @@ public class EspTouchTask {
                         if (correctBroadcastCount == requestParameters.getThresholdSucBroadcastCount()) {
                             // 解析设备已绑定的mac地址
                             String bssid = ByteUtil.parseBssid(receiveBytes, requestParameters.getEsptouchResultOneLen(), requestParameters.getEsptouchResultMacLen());
+                            Log.d(TAG, "配网成功，解析获取到的MAC地址是：" + bssid);
 
                             InetAddress inetAddress = EspNetUtil.parseInetAddr(receiveBytes,
                                     requestParameters.getEsptouchResultOneLen() + requestParameters.getEsptouchResultMacLen(),

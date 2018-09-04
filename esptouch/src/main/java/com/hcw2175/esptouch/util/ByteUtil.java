@@ -1,6 +1,9 @@
 package com.hcw2175.esptouch.util;
 
+import android.util.Log;
+
 import java.io.UnsupportedEncodingException;
+import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -12,7 +15,8 @@ import java.util.Random;
  *
  */
 public class ByteUtil {
-	
+    public static final String TAG = "ByteUtil";
+
 	public static final String ESPTOUCH_ENCODING_CHARSET = "UTF-8";
 	
 	/**
@@ -236,10 +240,13 @@ public class ByteUtil {
 	}
 	
 	public static String parseBssid(byte[] bssidBytes, int offset, int count) {
+        Log.d(TAG, "解析MAC地址，ESPTouch协议接收的原始数据：" + Arrays.toString(bssidBytes));
+        Log.d(TAG, "解析开始位置：" + offset + "，解析长度：" + count);
 		byte[] bytes = new byte[count];
 		for (int i = 0; i < count; i++) {
 			bytes[i] = bssidBytes[i + offset];
 		}
+        Log.d(TAG, "解析后十六进制结果：" + Arrays.toString(bytes));
 		return parseBssid(bytes);
 	}
 	
@@ -265,6 +272,7 @@ public class ByteUtil {
 
 			sb.append(str);
         }
+        Log.d(TAG, "解析后字符串结果，即最终MAC地址：" + sb.toString());
         return sb.toString();
     }
     
