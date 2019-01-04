@@ -1,2 +1,1 @@
-# esptouch
-ESPTouch配网封装处理
+# 本库不再维护，推荐使用官方库：https://github.com/EspressifApp/EsptouchForAndroid
